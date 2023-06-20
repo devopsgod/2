@@ -1,5 +1,5 @@
 # The Node.js image is used as the base image
-FROM node:18.10
+FROM node:18.16.1
 
 # Sets the working directory
 WORKDIR /app
