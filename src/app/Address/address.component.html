@@ -1,0 +1,59 @@
+<form #myForm="ngForm" [hidden]="!token || tokenInvalid === true || isAbiturientLoading || isRegionLoading">
+  <div class="container-fluid">
+    <label for="postcode">Почтовый индекс</label><label style="color: red">&nbsp;*</label>
+    <input type="text" class="form-control" id="postcode" placeholder="Индекс" [(ngModel)]="address.postCode" name="postcode" required maxlength="50"><br>
+      <div class="row">
+        <div class="col-sm">
+          <label for="region">Область</label><label style="color: red">&nbsp;*</label>
+          <input type="text" class="form-control" id="region" name="region" placeholder="Область" [(ngModel)]="address.region" required /><br>
+        </div>
+        <div class="col-sm">
+          <label for="district">Район</label><label style="color: red">&nbsp;*</label>
+          <input type="text" class="form-control" id="district" name="district" placeholder="Район" [(ngModel)]="address.district" required /><br>
+        </div>
+        <div class="col-sm">
+          <label for="city">Название населённого пункта</label><label style="color: red">&nbsp;*</label>
+          <input id="city" name="city" class="form-control" placeholder="Населённый пункт" [(ngModel)]="address.city" required />
+        </div>
+      </div>
+    <label for="street">Улица/Проспект</label><label style="color: red">&nbsp;*</label>
+    <input type="text" class="form-control" id="street" placeholder="Улица/Проспект" [(ngModel)]="address.street" name="street" required><br>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm">
+        <label for="house">Дом</label><label style="color: red">&nbsp;*</label>
+        <input type="text" class="form-control" id="house" placeholder="Дом" [(ngModel)]="address.house" name="house" required>
+      </div>
+      <div class="col-sm">
+        <label for="building">Корпус</label>
+        <input type="text" class="form-control" id="building" placeholder="Корпус" [(ngModel)]="address.building" name="building">
+      </div>
+      <div class="col-sm">
+        <label for="apartment">Квартира</label>
+        <input type="text" class="form-control" id="apartment" placeholder="Квартира" [(ngModel)]="address.apartment" name="apartment"><br>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <label for="phone">Телефон</label><label style="color: red">&nbsp;*</label>
+    <input type="text" class="form-control" id="phone" placeholder="Телефон" [(ngModel)]="address.phone" name="phone" required>
+  </div> <br>
+
+  <div class="container-fluid">
+    <input type="button" [routerLink]="['/personal']" class="btn btn-danger btn-lg" value="Назад" />
+    <input type="button" (click)="submit(address)" [disabled]="myForm.invalid" [routerLink]="['/study']" class="btn btn-success btn-lg" value="Далее"
+           tooltip="Пожалуйста, перед отправкой формы тщательно проверьте все введённые Вами данные." />
+  </div>
+
+</form>
+
+<div class="alert alert-danger" role="alert" [hidden]="token">
+  <strong>Запрещено! Недостаточно прав доступа! </strong>Пожалуйста <a href="/auth" class="alert-link">авторизируйтесь</a> или
+  <a href="/reg" class="alert-link">загеристрируйтесь</a> сперва! Потом попробуйте ещё раз.
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="tokenInvalid === true">
+  <strong>Ваш токен истёк! </strong>Пожалуйста <a href="/auth" class="alert-link">авторизируйтесь</a> сперва! Потом попробуйте ещё раз.
+</div>

@@ -1,0 +1,55 @@
+:host >>> .tooltip-inner {
+  background-color: #FF8C00;
+  color: #fff;
+}
+:host >>> .tooltip.top .tooltip-arrow:before,
+:host >>> .tooltip.top .tooltip-arrow {
+  border-top-color: #FF8C00;
+}
+
+.pass {
+  background-color: #007bff;
+}
+
+.not-pass {
+  background-color: #dc3545;
+}
+
+.priority-pass {
+  background-color: #28a745;
+}
+
+.sum {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  display: block;
+}
+
+.little {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.color-container {
+  display: flex;
+}
+
+.copyright {
+  position: fixed;
+  bottom: 10px;
+  left: 40%;
+}
+
+.status {
+  margin-top: 50px;
+}
+
+.info {
+  text-indent: 30px;
+}
+
+.ml-200 {
+  margin-left: 200px;
+}
